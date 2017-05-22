@@ -1,6 +1,6 @@
 {
   "name": "alfred-fanfou",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Alfred Fanfou",
   "license": "MIT",
   "repository": "LitoMore/alfred-fanfou",
@@ -28,11 +28,11 @@
   ],
   "keywords": [],
   "dependencies": {
+    "alfred-link": "^0.2.0",
     "fanfou-sdk": "^2.1.1",
     "homedir": "^0.6.0"
   },
   "devDependencies": {
-    "alfred-link": "^0.2.0",
     "standard": "^10.0.2"
   }
 }
