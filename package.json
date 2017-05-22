@@ -1,0 +1,38 @@
+{
+  "name": "alfred-fanfou",
+  "version": "0.0.1",
+  "description": "Alfred Fanfou",
+  "license": "MIT",
+  "repository": "LitoMore/alfred-fanfou",
+  "author": {
+    "name": "LitoMore",
+    "email": "litomore@gmail.com",
+    "url": "litomore.me"
+  },
+  "bin": {
+    "run-node": "run-node.sh"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "standard",
+    "postinstall": "alfred-link",
+    "preuninstall": "alfred-unlink"
+  },
+  "files": [
+    "fanfou.js",
+    "icon.png",
+    "info.plist",
+    "run-node.sh"
+  ],
+  "keywords": [],
+  "dependencies": {
+    "fanfou-sdk": "^2.1.1",
+    "homedir": "^0.6.0"
+  },
+  "devDependencies": {
+    "alfred-link": "^0.2.0",
+    "standard": "^10.0.2"
+  }
+}
