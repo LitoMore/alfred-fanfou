@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# GitHub: https://github.com/sindresorhus/alfy
+# LICENSE: MIT © Sindre Sorhus
+
 if [[ -z "$alfred_workflow_cache" ]]; then
 	echo "This script must be called from Alfred, \$alfred_workflow_cache is missing. Make sure a Bundle ID is set."
 	exit 1
