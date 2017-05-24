@@ -54,8 +54,9 @@
 				<key>script</key>
 				<string>#!/bin/bash
 arg=$1
+argb64=$(echo -ne "$arg" | base64)
 count=${#arg}
-echo "{\"items\": [{\"title\": \"饭否\", \"subtitle\": \"${count} 字\", \"arg\": \"$1\"}]}"</string>
+echo "{\"items\": [{\"title\": \"饭否\", \"subtitle\": \"${count} 字\", \"arg\": \"${argb64}\"}]}"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -82,7 +83,7 @@ echo "{\"items\": [{\"title\": \"饭否\", \"subtitle\": \"${count} 字\", \"arg
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
-				<integer>102</integer>
+				<integer>0</integer>
 				<key>script</key>
 				<string>./run-node.sh fanfou.js "{query}"</string>
 				<key>scriptargtype</key>

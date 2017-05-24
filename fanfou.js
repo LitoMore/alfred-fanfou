@@ -3,7 +3,8 @@ const homedir = require('homedir')
 const Fanfou = require('fanfou-sdk')
 const filePath = `${homedir()}/.alfred-fanfou/config.json`
 const arg = process.argv[2]
-const args = arg.split(' ')
+const argStr = Buffer.from(arg, 'base64').toString()
+const args = argStr.split(' ')
 
 if (args[0] === 'config') {
   const consumerKey = args[1]
@@ -35,7 +36,7 @@ if (args[0] === 'config') {
     }
   })
 } else {
-  const text = process.argv
+  const text = argStr
   console.log(text)
   const config = require(filePath)
 
