@@ -16,7 +16,7 @@
     "node": ">=4"
   },
   "scripts": {
-    "test": "standard",
+    "test": "standard && ava -s -v",
     "postinstall": "alfred-link"
   },
   "files": [
@@ -28,10 +28,12 @@
   "keywords": [],
   "dependencies": {
     "alfred-link": "^0.2.0",
-    "fanfou-sdk": "^2.1.1",
+    "fanfou-sdk": "^2.1.5",
     "homedir": "^0.6.0"
   },
   "devDependencies": {
+    "ava": "^0.20.0",
+    "execa": "^0.7.0",
     "standard": "^10.0.2"
   }
 }

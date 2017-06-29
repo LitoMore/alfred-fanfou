@@ -21,11 +21,11 @@
 				<false/>
 			</dict>
 		</array>
-		<key>F5B56CD2-539A-4432-84FE-DBBEA1BBE8DD</key>
+		<key>D280C4EE-DBA0-4E17-A194-6FAD5BEA9849</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>DE517419-A2EA-4B33-A5F4-B5C9E3A3DA4A</string>
+				<string>577182D8-308F-489E-92FE-E80CDD372F7A</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -33,9 +33,12 @@
 				<key>vitoclose</key>
 				<false/>
 			</dict>
+		</array>
+		<key>F5B56CD2-539A-4432-84FE-DBBEA1BBE8DD</key>
+		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>577182D8-308F-489E-92FE-E80CDD372F7A</string>
+				<string>D280C4EE-DBA0-4E17-A194-6FAD5BEA9849</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -129,18 +132,18 @@ echo "{\"items\": [{\"title\": \"饭否\", \"subtitle\": \"${count} 字\", \"arg
 				<key>lastpathcomponent</key>
 				<false/>
 				<key>onlyshowifquerypopulated</key>
-				<false/>
+				<true/>
 				<key>removeextension</key>
 				<false/>
 				<key>text</key>
 				<string>{query}</string>
 				<key>title</key>
-				<string>发送成功</string>
+				<string>饭否</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
-			<string>DE517419-A2EA-4B33-A5F4-B5C9E3A3DA4A</string>
+			<string>D280C4EE-DBA0-4E17-A194-6FAD5BEA9849</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -167,30 +170,30 @@ echo "{\"items\": [{\"title\": \"饭否\", \"subtitle\": \"${count} 字\", \"arg
 		<key>577182D8-308F-489E-92FE-E80CDD372F7A</key>
 		<dict>
 			<key>xpos</key>
-			<integer>350</integer>
+			<integer>440</integer>
 			<key>ypos</key>
-			<integer>140</integer>
+			<integer>170</integer>
 		</dict>
 		<key>95630708-F66E-4A6B-8FE3-C5D31D4F5739</key>
 		<dict>
 			<key>xpos</key>
 			<integer>10</integer>
 			<key>ypos</key>
-			<integer>10</integer>
+			<integer>170</integer>
 		</dict>
-		<key>DE517419-A2EA-4B33-A5F4-B5C9E3A3DA4A</key>
+		<key>D280C4EE-DBA0-4E17-A194-6FAD5BEA9849</key>
 		<dict>
 			<key>xpos</key>
-			<integer>350</integer>
+			<integer>300</integer>
 			<key>ypos</key>
-			<integer>10</integer>
+			<integer>170</integer>
 		</dict>
 		<key>F5B56CD2-539A-4432-84FE-DBBEA1BBE8DD</key>
 		<dict>
 			<key>xpos</key>
-			<integer>180</integer>
+			<integer>160</integer>
 			<key>ypos</key>
-			<integer>10</integer>
+			<integer>170</integer>
 		</dict>
 	</dict>
 </dict>
