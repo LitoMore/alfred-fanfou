@@ -17,8 +17,7 @@
   },
   "scripts": {
     "test": "standard",
-    "postinstall": "alfred-link",
-    "preuninstall": "alfred-unlink"
+    "postinstall": "alfred-link"
   },
   "files": [
     "fanfou.js",
