@@ -22,7 +22,28 @@
 			</dict>
 		</array>
 		<key>F5B56CD2-539A-4432-84FE-DBBEA1BBE8DD</key>
-		<array/>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>DE517419-A2EA-4B33-A5F4-B5C9E3A3DA4A</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>577182D8-308F-489E-92FE-E80CDD372F7A</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 	</dict>
 	<key>disabled</key>
 	<false/>
@@ -33,8 +54,33 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>./run-node.sh fanfou.js "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>F5B56CD2-539A-4432-84FE-DBBEA1BBE8DD</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>escaping</key>
@@ -80,35 +126,62 @@ echo "{\"items\": [{\"title\": \"饭否\", \"subtitle\": \"${count} 字\", \"arg
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
+				<key>lastpathcomponent</key>
 				<false/>
-				<key>escaping</key>
-				<integer>0</integer>
-				<key>script</key>
-				<string>./run-node.sh fanfou.js "{query}"</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>发送成功</string>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.script</string>
+			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
-			<string>F5B56CD2-539A-4432-84FE-DBBEA1BBE8DD</string>
+			<string>DE517419-A2EA-4B33-A5F4-B5C9E3A3DA4A</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>soundname</key>
+				<string>Tink</string>
+				<key>systemsound</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.playsound</string>
+			<key>uid</key>
+			<string>577182D8-308F-489E-92FE-E80CDD372F7A</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>577182D8-308F-489E-92FE-E80CDD372F7A</key>
+		<dict>
+			<key>xpos</key>
+			<integer>350</integer>
+			<key>ypos</key>
+			<integer>140</integer>
+		</dict>
 		<key>95630708-F66E-4A6B-8FE3-C5D31D4F5739</key>
 		<dict>
 			<key>xpos</key>
 			<integer>10</integer>
+			<key>ypos</key>
+			<integer>10</integer>
+		</dict>
+		<key>DE517419-A2EA-4B33-A5F4-B5C9E3A3DA4A</key>
+		<dict>
+			<key>xpos</key>
+			<integer>350</integer>
 			<key>ypos</key>
 			<integer>10</integer>
 		</dict>
