@@ -14,7 +14,7 @@ const args = argStr.split(' ')
 const createConfig = (content) => {
   return new Promise((resolve, reject) => {
     fs.mkdir(`${homedir()}${configPath}`, () => {
-      fs.writeFileSync(filePath, JSON.stringify(content))
+      fs.writeFileSync(filePath, JSON.stringify(content, null, 2))
       resolve(content)
     })
   })
