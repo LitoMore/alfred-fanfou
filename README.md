@@ -1,5 +1,7 @@
 # alfred-fanfou
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/LitoMore/alfred-fanfou.svg)](https://greenkeeper.io/)
+
 Alfred Fanfou
 
 [![](https://img.shields.io/travis/LitoMore/alfred-fanfou/master.svg)](https://travis-ci.org/LitoMore/alfred-fanfou)
