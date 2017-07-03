@@ -13,7 +13,7 @@
     "run-node": "run-node.sh"
   },
   "engines": {
-    "node": ">=4"
+    "node": ">=7.6.0"
   },
   "scripts": {
     "test": "standard && ava -s -v",
