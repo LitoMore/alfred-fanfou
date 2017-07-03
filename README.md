@@ -18,7 +18,7 @@ $ npm install -g alfred-fanfou
 
 ## Config & Login
 
-1. Config your [APP](https://fanfou.com/apps)
+1. Config your [App](https://fanfou.com/apps)
 
 ```bash
 ff config CONSUMER_KEY CONSUMER_SECRET
