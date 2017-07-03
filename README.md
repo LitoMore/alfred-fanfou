@@ -14,19 +14,17 @@ Alfred Fanfou
 $ npm install -g alfred-fanfou
 ```
 
+> Require [Node.js](https://nodejs.org/) >=7.6.0 and the Alfred [Powerpack](https://www.alfredapp.com/powerpack/).
+
 ## Config & Login
 
-1. Config your app
-
-![](http://photo2.fanfou.com/v1/mss_3d027b52ec5a4d589e68050845611e68/ff/n0/0e/0w/v6_123495.jpg@500w)
+1. Config your [APP](https://fanfou.com/apps)
 
 ```bash
 ff config CONSUMER_KEY CONSUMER_SECRET
 ```
 
 2. Login your fanfou account
-
-![](http://photo3.fanfou.com/v1/mss_3d027b52ec5a4d589e68050845611e68/ff/n0/0e/0w/v7_123494.jpg@500w)
 
 ```bash
 ff login USERNAME PASSWORD
