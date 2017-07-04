@@ -99,13 +99,28 @@
 				<key>queuemode</key>
 				<integer>2</integer>
 				<key>runningsubtext</key>
-				<string>Searching...</string>
+				<string>Please Wait...</string>
 				<key>script</key>
 				<string>#!/bin/bash
+
 arg=$1
 argb64=$(echo -ne "$arg" | base64)
-count=${#arg}
-echo "{\"items\": [{\"title\": \"饭否\", \"subtitle\": \"${count} 字\", \"arg\": \"${argb64}\"}]}"</string>
+
+if [[ "$arg" =~ ^(h|m|me|p)(( )[0-9]*)*$ ]]; then
+  ./run-node.sh fanfou.js "${argb64}"
+  #subtitle=$arg
+  #echo "{\"items\":[{\"title\":\"饭否\",\"subtitle\":\"${subtitle}\",\"arg\":\"${argb64}\"}]}"
+else
+  if [[ "$arg" =~ ^config.* ]]; then
+    subtitle="配置 Consumer Key 与 Consumer Secret"
+  elif [[ "$arg" =~ ^login.* ]]; then
+    subtitle="登录饭否账号"
+  else
+    count=${#arg}
+    subtitle="${count} 字"
+  fi
+  echo "{\"items\":[{\"title\":\"饭否\",\"subtitle\":\"${subtitle}\",\"arg\":\"${argb64}\"}]}"
+fi</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>

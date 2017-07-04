@@ -8,7 +8,14 @@ const isProduction = !fs.existsSync(path.join(__dirname, '.gitignore'))
 const configPath = isProduction ? '/.alfred-fanfou/' : '/.alfred-fanfou-dev/'
 const filePath = `${homedir()}${configPath}config.json`
 const arg = process.argv[2]
-const argStr = Buffer.from(arg, 'base64').toString()
+
+const base64 = {
+  decode: str => Buffer.from(str, 'base64').toString(),
+  encode: str => Buffer.from(str).toString('base64')
+}
+const output = item => console.log(JSON.stringify(item))
+
+const argStr = base64.decode(arg)
 const args = argStr.split(' ')
 
 const createConfig = (content) => {
@@ -35,7 +42,6 @@ if (args[0] === 'config') {
   const username = args[1]
   const password = args[2]
   const config = require(filePath)
-
   const ff = new Fanfou({
     auth_type: 'xauth',
     consumer_key: config.consumer_key,
@@ -54,6 +60,49 @@ if (args[0] === 'config') {
       console.log('登录成功！')
     }
   })
+} else if (['h', 'm', 'me', 'p'].indexOf(args[0]) !== -1) {
+  const config = require(filePath)
+  const ff = new Fanfou({
+    auth_type: 'oauth',
+    consumer_key: config.consumer_key,
+    consumer_secret: config.consumer_secret,
+    oauth_token: config.oauth_token,
+    oauth_token_secret: config.oauth_token_secret
+  })
+  const getTimeline = res => {
+    const timeline = []
+    res.forEach(item => {
+      timeline.push({title: item.user.name, subtitle: item.text})
+    })
+    output({items: timeline})
+  }
+  const count = args[1] || 10
+  switch (args[0]) {
+    case 'h':
+      ff.get('/statuses/home_timeline', {count}, (err, res) => {
+        if (err) output({items: [{title: '饭否', subtitle: err.message}]})
+        else getTimeline(res)
+      })
+      break
+    case 'm':
+      ff.get('/statuses/mentions', {count}, (err, res) => {
+        if (err) output({items: [{title: '饭否', subtitle: err.message}]})
+        else getTimeline(res)
+      })
+      break
+    case 'me':
+      ff.get('/statuses/user_timeline', {count}, (err, res) => {
+        if (err) output({items: [{title: '饭否', subtitle: err.message}]})
+        else getTimeline(res)
+      })
+      break
+    case 'p':
+      ff.get('/statuses/public_timeline', {count}, (err, res) => {
+        if (err) output({items: [{title: '饭否', subtitle: err.message}]})
+        else getTimeline(res)
+      })
+      break
+  }
 } else {
   const text = argStr
   const config = require(filePath)
@@ -64,7 +113,6 @@ if (args[0] === 'config') {
     oauth_token: config.oauth_token,
     oauth_token_secret: config.oauth_token_secret
   })
-
   ff.post('/statuses/update', {status: text}, (err, res) => {
     if (err) console.log(err.message)
     else console.log(res.text)

@@ -20,20 +20,24 @@ $ npm install -g alfred-fanfou
 
 1. Config your [App](https://fanfou.com/apps)
 
-```bash
+```
 ff config CONSUMER_KEY CONSUMER_SECRET
 ```
 
 2. Login your fanfou account
 
-```bash
+```
 ff login USERNAME PASSWORD
 ```
 
-3. Post
+## Usage
 
 ```bash
-ff SAY HELLO
+ff SAY HELLO      # post status
+ff h [count]      # show home-timeline
+ff m [count]      # show mentions
+ff me [count]     # show user-timeline
+ff p [count]      # show public-timeline
 ```
 
 Enjoy it! :]

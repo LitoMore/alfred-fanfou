@@ -19,6 +19,7 @@ const base64 = {
 const configQuery = `config ${CONSUMER_KEY} ${CONSUMER_SECRET}`
 const loginQuery = `login ${FANFOU_USERNAME} ${FANFOU_PASSWORD}`
 const postQuery = `alfred test - ${Math.random().toString(36).substr(2, 5)}`
+const homeQuery = 'h 1'
 
 test('ff config', async t => {
   const {stdout} = await execa('./fanfou.js', [base64.encode(configQuery)])
@@ -33,4 +34,10 @@ test('ff login', async t => {
 test('ff post', async t => {
   const {stdout} = await execa('./fanfou.js', [base64.encode(postQuery)])
   t.is(stdout, postQuery)
+})
+
+test('ff me 1', async t => {
+  const {stdout} = await execa('./fanfou.js', [base64.encode(homeQuery)])
+  const {length} = JSON.parse(stdout).items
+  t.is(length, 1)
 })
