@@ -32,7 +32,7 @@
     "homedir": "^0.6.0"
   },
   "devDependencies": {
-    "ava": "^0.20.0",
+    "ava": "^0.21.0",
     "execa": "^0.7.0",
     "standard": "^10.0.2"
   }
