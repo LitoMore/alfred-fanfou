@@ -40,4 +40,10 @@ ff me [count]     # show user-timeline
 ff p [count]      # show public-timeline
 ```
 
-Enjoy it! :]
+## Related
+
+- [fanfou-sdk](https://github.com/LitoMore/fanfou-sdk-node) - Fanfou SDK for Node.js
+
+## License
+
+MIT @ [LitoMore](https://github.com/LitoMore)
