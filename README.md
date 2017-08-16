@@ -46,4 +46,4 @@ ff p [count]      # show public-timeline
 
 ## License
 
-MIT @ [LitoMore](https://github.com/LitoMore)
+MIT © [LitoMore](https://github.com/LitoMore)
