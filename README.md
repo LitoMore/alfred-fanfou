@@ -10,8 +10,6 @@ Alfred Fanfou
 
 <div style="text-align: center;"><img src="https://raw.githubusercontent.com/LitoMore/alfred-fanfou/master/screenshot.png" alt="alfred-fanfou" /></div>
 
-![]()
-
 ## Installation
 
 ```bash
