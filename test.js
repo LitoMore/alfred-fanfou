@@ -10,6 +10,8 @@ const {
   FANFOU_PASSWORD
 } = process.env
 
+process.env.NODE_ENV = 'test'
+
 const PULL_REQUEST_FROM_FORKED = !(CONSUMER_KEY && CONSUMER_SECRET && FANFOU_USERNAME && FANFOU_PASSWORD)
 
 const base64 = {

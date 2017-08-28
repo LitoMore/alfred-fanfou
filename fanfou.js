@@ -1,11 +1,9 @@
 #!/usr/bin/env node
 'use strict'
 const fs = require('fs')
-const path = require('path')
 const homedir = require('homedir')
 const Fanfou = require('fanfou-sdk')
-const isProduction = !fs.existsSync(path.join(__dirname, '.gitignore'))
-const configPath = isProduction ? '/.alfred-fanfou/' : '/.alfred-fanfou-dev/'
+const configPath = process.env.NODE_ENV === 'test' ? '/.alfred-fanfou-test/' : '/.alfred-fanfou/'
 const filePath = `${homedir()}${configPath}config.json`
 const arg = process.argv[2]
 
