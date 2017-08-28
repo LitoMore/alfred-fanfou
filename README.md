@@ -6,7 +6,7 @@
 [![](https://img.shields.io/npm/l/alfred-fanfou.svg)](https://github.com/LitoMore/alfred-fanfou/blob/master/LICENSE)
 [![](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-Alfred Fanfou
+Alfred 3 workflow for Fanfou
 
 <div style="text-align: center;"><img src="https://raw.githubusercontent.com/LitoMore/alfred-fanfou/master/screenshot.png" alt="alfred-fanfou" /></div>
 
