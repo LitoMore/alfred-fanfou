@@ -28,12 +28,12 @@
   "keywords": [],
   "dependencies": {
     "alfred-link": "^0.2.0",
-    "fanfou-sdk": "^2.1.8",
+    "fanfou-sdk": "^2.1.10",
     "homedir": "^0.6.0"
   },
   "devDependencies": {
     "ava": "^0.22.0",
     "execa": "^0.8.0",
-    "standard": "^10.0.2"
+    "standard": "^10.0.3"
   }
 }
