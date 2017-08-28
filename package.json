@@ -1,7 +1,7 @@
 {
   "name": "alfred-fanfou",
-  "version": "0.1.4",
-  "description": "Alfred Fanfou",
+  "version": "0.1.5",
+  "description": "Alfred 3 workflow for Fanfou",
   "license": "MIT",
   "repository": "LitoMore/alfred-fanfou",
   "author": {
