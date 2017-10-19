@@ -82,6 +82,8 @@
 			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
@@ -115,6 +117,8 @@ else
     subtitle="配置 Consumer Key 与 Consumer Secret"
   elif [[ "$arg" =~ ^login.* ]]; then
     subtitle="登录饭否账号"
+  elif [[ "$arg" =~ ^undo.* ]]; then
+    subtitle="删除上一条消息"
   else
     count=${#arg}
     subtitle="${count} 字"

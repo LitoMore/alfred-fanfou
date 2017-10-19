@@ -1,8 +1,11 @@
 #!/usr/bin/env node
+
 'use strict'
+
 const fs = require('fs')
 const homedir = require('homedir')
 const Fanfou = require('fanfou-sdk')
+
 const configPath = process.env.NODE_ENV === 'test' ? '/.alfred-fanfou-test/' : '/.alfred-fanfou/'
 const filePath = `${homedir()}${configPath}config.json`
 const arg = process.argv[2]
@@ -11,8 +14,8 @@ const base64 = {
   decode: str => Buffer.from(str, 'base64').toString(),
   encode: str => Buffer.from(str).toString('base64')
 }
-const output = item => console.log(JSON.stringify(item))
 
+const output = item => console.log(JSON.stringify(item))
 const argStr = base64.decode(arg)
 const args = argStr.split(' ')
 
@@ -58,7 +61,7 @@ if (args[0] === 'config') {
       console.log('登录成功！')
     }
   })
-} else if (['h', 'm', 'me', 'p'].indexOf(args[0]) !== -1) {
+} else if (['h', 'm', 'me', 'p', 'undo'].indexOf(args[0]) !== -1) {
   const config = require(filePath)
   const ff = new Fanfou({
     auth_type: 'oauth',
@@ -67,38 +70,51 @@ if (args[0] === 'config') {
     oauth_token: config.oauth_token,
     oauth_token_secret: config.oauth_token_secret
   })
-  const getTimeline = res => {
-    const timeline = []
-    res.forEach(item => {
-      timeline.push({title: item.user.name, subtitle: item.text})
-    })
-    output({items: timeline})
-  }
   const count = args[1] || 10
+
+  const getTimeline = uri => {
+    ff.get(uri, {count}, (err, res) => {
+      if (err) output({items: [{title: '饭否', subtitle: err.message}]})
+      else {
+        const timeline = []
+        res.forEach(item => {
+          timeline.push({title: item.user.name, subtitle: item.text})
+        })
+        output({items: timeline})
+      }
+    })
+  }
+
+  const undo = () => {
+    ff.get('/statuses/user_timeline', {count: 1}, (err, res) => {
+      if (err) output({items: [{title: '饭否', subtitle: err.message}]})
+      else {
+        const status = res[0] || {}
+        ff.post('/statuses/destroy', {id: status.id}, (err, res) => {
+          if (err) output({items: [{title: '饭否', subtitle: err.message}]})
+          else console.log('删除成功！')
+        })
+      }
+    })
+  }
+
   switch (args[0]) {
     case 'h':
-      ff.get('/statuses/home_timeline', {count}, (err, res) => {
-        if (err) output({items: [{title: '饭否', subtitle: err.message}]})
-        else getTimeline(res)
-      })
+      getTimeline('/statuses/home_timeline')
       break
     case 'm':
-      ff.get('/statuses/mentions', {count}, (err, res) => {
-        if (err) output({items: [{title: '饭否', subtitle: err.message}]})
-        else getTimeline(res)
-      })
+      getTimeline('/statuses/mentions')
       break
     case 'me':
-      ff.get('/statuses/user_timeline', {count}, (err, res) => {
-        if (err) output({items: [{title: '饭否', subtitle: err.message}]})
-        else getTimeline(res)
-      })
+      getTimeline('/statuses/user_timeline')
       break
     case 'p':
-      ff.get('/statuses/public_timeline', {count}, (err, res) => {
-        if (err) output({items: [{title: '饭否', subtitle: err.message}]})
-        else getTimeline(res)
-      })
+      getTimeline('/statuses/public_timeline')
+      break
+    case 'undo':
+      undo()
+      break
+    default:
       break
   }
 } else {
