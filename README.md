@@ -40,6 +40,7 @@ ff h [count]      # show home-timeline
 ff m [count]      # show mentions
 ff me [count]     # show user-timeline
 ff p [count]      # show public-timeline
+ff undo           # delete last status
 ```
 
 ## Related
