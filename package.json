@@ -27,8 +27,8 @@
   ],
   "keywords": [],
   "dependencies": {
-    "alfred-link": "^0.2.0",
-    "fanfou-sdk": "^2.1.10",
+    "alfred-link": "^0.2.1",
+    "fanfou-sdk": "^2.5.0",
     "homedir": "^0.6.0"
   },
   "devDependencies": {
