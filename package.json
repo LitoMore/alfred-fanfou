@@ -16,7 +16,7 @@
     "node": ">=7.6.0"
   },
   "scripts": {
-    "test": "standard && ava -s -v",
+    "test": "standard",
     "postinstall": "alfred-link"
   },
   "files": [
