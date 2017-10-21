@@ -8,7 +8,7 @@
 
 Alfred 3 workflow for Fanfou
 
-<div style="text-align: center;"><img src="https://raw.githubusercontent.com/LitoMore/alfred-fanfou/master/screenshot.png" alt="alfred-fanfou" /></div>
+<div style="text-align: center;"><img width="50%" height="50%" src="https://raw.githubusercontent.com/LitoMore/alfred-fanfou/master/screenshot.png" alt="alfred-fanfou" /></div>
 
 ## Installation
 
