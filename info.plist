@@ -113,11 +113,11 @@ if [[ "$arg" =~ ^(h|m|me|p)(( )[0-9]*)*$ ]]; then
   #subtitle=$arg
   #echo "{\"items\":[{\"title\":\"饭否\",\"subtitle\":\"${subtitle}\",\"arg\":\"${argb64}\"}]}"
 else
-  if [[ "$arg" =~ ^config.* ]]; then
+  if [[ "$arg" =~ ^config( ).* ]]; then
     subtitle="配置 Consumer Key 与 Consumer Secret"
-  elif [[ "$arg" =~ ^login.* ]]; then
+  elif [[ "$arg" =~ ^login( ).* ]]; then
     subtitle="登录饭否账号"
-  elif [[ "$arg" =~ ^undo.* ]]; then
+  elif [[ "$arg" =~ ^undo$ ]]; then
     subtitle="删除上一条消息"
   else
     count=${#arg}
