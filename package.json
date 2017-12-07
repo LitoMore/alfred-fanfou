@@ -21,7 +21,7 @@
     "postinstall": "alfred-link"
   },
   "files": [
-    "fanfou.js",
+    "lib/fanfou.js",
     "icon.png",
     "info.plist",
     "run-node.sh"
