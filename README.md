@@ -16,7 +16,7 @@ Alfred 3 workflow for Fanfou
 $ npm install -g alfred-fanfou
 ```
 
-> Require [Node.js](https://nodejs.org/) >=7.6.0 and the Alfred [Powerpack](https://www.alfredapp.com/powerpack/).
+> Require [Node.js](https://nodejs.org/) >=6 and the Alfred [Powerpack](https://www.alfredapp.com/powerpack/).
 
 ## Config & Login
 

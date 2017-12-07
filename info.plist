@@ -62,7 +62,7 @@
 				<key>escaping</key>
 				<integer>0</integer>
 				<key>script</key>
-				<string>./run-node.sh fanfou.js "{query}"</string>
+				<string>./run-node.sh ./lib/fanfou.js "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -109,7 +109,7 @@ arg=$1
 argb64=$(echo -ne "$arg" | base64)
 
 if [[ "$arg" =~ ^(h|m|me|p)(( )[0-9]*)*$ ]]; then
-  ./run-node.sh fanfou.js "${argb64}"
+  ./run-node.sh ./lib/fanfou.js "${argb64}"
   #subtitle=$arg
   #echo "{\"items\":[{\"title\":\"饭否\",\"subtitle\":\"${subtitle}\",\"arg\":\"${argb64}\"}]}"
 else

@@ -26,22 +26,22 @@ const postQuery = `alfred test - ${Math.random().toString(36).substr(2, 5)}`
 const homeQuery = 'h 1'
 
 test('ff config', async t => {
-  const {stdout} = await execa('./fanfou.js', [base64.encode(configQuery)])
+  const {stdout} = await execa('./lib/fanfou.js', [base64.encode(configQuery)])
   t.is(stdout, '配置成功！')
 })
 
 test('ff login', async t => {
-  const {stdout} = await execa('./fanfou.js', [base64.encode(loginQuery)])
+  const {stdout} = await execa('./lib/fanfou.js', [base64.encode(loginQuery)])
   PULL_REQUEST_FROM_FORKED ? t.is(stdout, 'Invalid consumer') : t.is(stdout, '登录成功！')
 })
 
 test('ff post', async t => {
-  const {stdout} = await execa('./fanfou.js', [base64.encode(postQuery)])
+  const {stdout} = await execa('./lib/fanfou.js', [base64.encode(postQuery)])
   PULL_REQUEST_FROM_FORKED ? t.is(stdout, 'Invalid consumer') : t.is(stdout, postQuery)
 })
 
 test('ff me 1', async t => {
-  const {stdout} = await execa('./fanfou.js', [base64.encode(homeQuery)])
+  const {stdout} = await execa('./lib/fanfou.js', [base64.encode(homeQuery)])
   const {length} = JSON.parse(stdout).items
   t.is(length, 1)
 })

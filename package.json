@@ -13,10 +13,11 @@
     "run-node": "run-node.sh"
   },
   "engines": {
-    "node": ">=7.6.0"
+    "node": ">=6"
   },
   "scripts": {
-    "test": "standard",
+    "build": "standard && babel src -d lib",
+    "test": "npm run build",
     "postinstall": "alfred-link"
   },
   "files": [
@@ -32,6 +33,10 @@
     "homedir": "^0.6.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.34",
+    "@babel/core": "^7.0.0-beta.34",
+    "@babel/plugin-transform-async-to-generator": "^7.0.0-beta.34",
+    "@babel/preset-env": "^7.0.0-beta.34",
     "ava": "^0.24.0",
     "execa": "^0.8.0",
     "standard": "^10.0.3"
