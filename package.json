@@ -7,7 +7,7 @@
   "author": {
     "name": "LitoMore",
     "email": "litomore@gmail.com",
-    "url": "litomore.me"
+    "url": "https://litomore.me"
   },
   "bin": {
     "run-node": "run-node.sh"
