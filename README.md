@@ -43,7 +43,7 @@ ff p [count]      # show public-timeline
 ff undo           # delete last status
 ```
 
-In timeline mode, hold <kbd>Command</kdb> to display additional information.
+In timeline mode, hold <kbd>Command</kbd> to display additional information.
 
 ## Related
 
