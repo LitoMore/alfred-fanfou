@@ -43,6 +43,8 @@ ff p [count]      # show public-timeline
 ff undo           # delete last status
 ```
 
+In timeline mode, hold <kbd>Command</kdb> to display additional information.
+
 ## Related
 
 - [fanfou-sdk](https://github.com/LitoMore/fanfou-sdk-node) - Fanfou SDK for Node.js
