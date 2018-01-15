@@ -30,7 +30,9 @@
   "dependencies": {
     "alfred-link": "^0.2.1",
     "fanfou-sdk": "^2.6.1",
-    "homedir": "^0.6.0"
+    "homedir": "^0.6.0",
+    "pangu": "^3.3.0",
+    "timeago.js": "^3.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.37",

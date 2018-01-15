@@ -2,8 +2,10 @@
 'use strict'
 
 const fs = require('fs')
+const pangu = require('pangu')
 const homedir = require('homedir')
 const Fanfou = require('fanfou-sdk')
+const Timeago = require('timeago.js')
 
 const configPath = process.env.NODE_ENV === 'test' ? '/.alfred-fanfou-test/' : '/.alfred-fanfou/'
 const filePath = `${homedir()}${configPath}config.json`
@@ -80,7 +82,16 @@ if (args[0] === 'config') {
       else {
         const timeline = []
         res.forEach(item => {
-          timeline.push({title: item.user.name, subtitle: item.text})
+          timeline.push({
+            title: item.user.name,
+            subtitle: item.text,
+            mods: {
+              cmd: {
+                subtitle: pangu.spacing(new Timeago().format(item.created_at, 'zh_CN')) + ' via ' + item.source_name
+              }
+            },
+            quicklookur: 'https://fanfou.com'
+          })
         })
         output({items: timeline})
       }
