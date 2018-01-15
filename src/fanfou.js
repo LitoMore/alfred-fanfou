@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 'use strict'
 
 const fs = require('fs')
@@ -44,11 +43,13 @@ if (args[0] === 'config') {
   const password = args[2]
   const config = require(filePath)
   const ff = new Fanfou({
-    auth_type: 'xauth',
-    consumer_key: config.consumer_key,
-    consumer_secret: config.consumer_secret,
+    authType: 'xauth',
+    consumerKey: config.consumer_key,
+    consumerSecret: config.consumer_secret,
     username: username,
-    password: password
+    password: password,
+    protocol: config.https ? 'https:' : 'http:',
+    fakeHttps: !!config.https
   })
   ff.xauth(async (e, res) => {
     if (e) console.log(e.message)
@@ -64,11 +65,12 @@ if (args[0] === 'config') {
 } else if (['h', 'm', 'me', 'p', 'undo'].indexOf(args[0]) !== -1) {
   const config = require(filePath)
   const ff = new Fanfou({
-    auth_type: 'oauth',
-    consumer_key: config.consumer_key,
-    consumer_secret: config.consumer_secret,
-    oauth_token: config.oauth_token,
-    oauth_token_secret: config.oauth_token_secret
+    consumerKey: config.consumer_key,
+    consumerSecret: config.consumer_secret,
+    oauthToken: config.oauth_token,
+    oauthTokenSecret: config.oauth_token_secret,
+    protocol: config.https ? 'https:' : 'http:',
+    fakeHttps: !!config.https
   })
   const count = args[1] || 10
 
@@ -121,11 +123,12 @@ if (args[0] === 'config') {
   const text = argStr
   const config = require(filePath)
   const ff = new Fanfou({
-    auth_type: 'oauth',
-    consumer_key: config.consumer_key,
-    consumer_secret: config.consumer_secret,
-    oauth_token: config.oauth_token,
-    oauth_token_secret: config.oauth_token_secret
+    consumerKey: config.consumer_key,
+    consumerSecret: config.consumer_secret,
+    oauhtToken: config.oauth_token,
+    oauthToken: config.oauth_token_secret,
+    protocol: config.https ? 'https:' : 'http:',
+    fakeHttps: !!config.https
   })
   ff.post('/statuses/update', {status: text}, (err, res) => {
     if (err) console.log(err.message)
