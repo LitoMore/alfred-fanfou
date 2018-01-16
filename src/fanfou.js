@@ -136,8 +136,8 @@ if (args[0] === 'config') {
   const ff = new Fanfou({
     consumerKey: config.consumer_key,
     consumerSecret: config.consumer_secret,
-    oauhtToken: config.oauth_token,
-    oauthToken: config.oauth_token_secret,
+    oauthToken: config.oauth_token,
+    oauthTokenSecret: config.oauth_token_secret,
     protocol: config.https ? 'https:' : 'http:',
     fakeHttps: !!config.https
   })
