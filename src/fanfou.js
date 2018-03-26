@@ -2,10 +2,12 @@
 'use strict'
 
 const fs = require('fs')
-const pangu = require('pangu')
-const homedir = require('homedir')
-const Fanfou = require('fanfou-sdk')
-const Timeago = require('timeago.js')
+const importLazy = require('import-lazy')(require)
+
+const pangu = importLazy('pangu')
+const homedir = importLazy('homedir')
+const Fanfou = importLazy('fanfou-sdk')
+const Timeago = importLazy('timeago.js')
 
 const configPath = process.env.NODE_ENV === 'test' ? '/.alfred-fanfou-test/' : '/.alfred-fanfou/'
 const filePath = `${homedir()}${configPath}config.json`
