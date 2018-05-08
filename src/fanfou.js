@@ -11,7 +11,7 @@ const Timeago = importLazy('timeago.js')
 
 const configPath = process.env.NODE_ENV === 'test' ? '/.alfred-fanfou-test/' : '/.alfred-fanfou/'
 const filePath = `${homedir()}${configPath}config.json`
-const arg = process.argv[2]
+const [, , arg] = process.argv
 
 const base64 = {
   decode: str => Buffer.from(str, 'base64').toString(),
@@ -22,8 +22,8 @@ const output = item => console.log(JSON.stringify(item))
 const argStr = base64.decode(arg)
 const args = argStr.split(' ')
 
-const createConfig = (content) => {
-  return new Promise((resolve, reject) => {
+const createConfig = content => {
+  return new Promise(resolve => {
     fs.mkdir(`${homedir()}${configPath}`, () => {
       fs.writeFileSync(filePath, JSON.stringify(content, null, 2))
       resolve(content)
@@ -32,8 +32,7 @@ const createConfig = (content) => {
 }
 
 if (args[0] === 'config') {
-  const consumerKey = args[1]
-  const consumerSecret = args[2]
+  const [, consumerKey, consumerSecret] = args
   const cf = async () => {
     await createConfig({
       consumer_key: consumerKey,
@@ -43,21 +42,21 @@ if (args[0] === 'config') {
   }
   cf()
 } else if (args[0] === 'login') {
-  const username = args[1]
-  const password = args[2]
+  const [, username, password] = args
   const config = require(filePath)
   const ff = new Fanfou({
     authType: 'xauth',
     consumerKey: config.consumer_key,
     consumerSecret: config.consumer_secret,
-    username: username,
-    password: password,
+    username,
+    password,
     protocol: config.https ? 'https:' : 'http:',
-    fakeHttps: !!config.https
+    fakeHttps: Boolean(config.https)
   })
   ff.xauth(async (e, res) => {
-    if (e) console.log(e.message)
-    else {
+    if (e) {
+      console.log(e.message)
+    } else {
       const oauthToken = res.oauth_token
       const oauthTokenSecret = res.oauth_token_secret
       config.oauth_token = oauthToken
@@ -66,7 +65,8 @@ if (args[0] === 'config') {
       console.log('登录成功！')
     }
   })
-} else if (['h', 'm', 'me', 'p', 'undo'].indexOf(args[0]) !== -1) {
+} else if (['h', 'm', 'me', 'p', 'undo'].indexOf(args[0]) === -1) {
+  const text = argStr
   const config = require(filePath)
   const ff = new Fanfou({
     consumerKey: config.consumer_key,
@@ -74,14 +74,31 @@ if (args[0] === 'config') {
     oauthToken: config.oauth_token,
     oauthTokenSecret: config.oauth_token_secret,
     protocol: config.https ? 'https:' : 'http:',
-    fakeHttps: !!config.https
+    fakeHttps: Boolean(config.https)
+  })
+  ff.post('/statuses/update', {status: text}, (err, res) => {
+    if (err) {
+      console.log(err.message)
+    } else {
+      console.log(res.text)
+    }
+  })
+} else {
+  const config = require(filePath)
+  const ff = new Fanfou({
+    consumerKey: config.consumer_key,
+    consumerSecret: config.consumer_secret,
+    oauthToken: config.oauth_token,
+    oauthTokenSecret: config.oauth_token_secret,
+    protocol: config.https ? 'https:' : 'http:',
+    fakeHttps: Boolean(config.https)
   })
   const count = args[1] || 10
-
   const getTimeline = uri => {
     ff.get(uri, {count}, (err, res) => {
-      if (err) output({items: [{title: '饭否', subtitle: err.message}]})
-      else {
+      if (err) {
+        output({items: [{title: '饭否', subtitle: err.message}]})
+      } else {
         const timeline = []
         res.forEach(item => {
           timeline.push({
@@ -102,12 +119,16 @@ if (args[0] === 'config') {
 
   const undo = () => {
     ff.get('/statuses/user_timeline', {count: 1}, (err, res) => {
-      if (err) output({items: [{title: '饭否', subtitle: err.message}]})
-      else {
+      if (err) {
+        output({items: [{title: '饭否', subtitle: err.message}]})
+      } else {
         const status = res[0] || {}
-        ff.post('/statuses/destroy', {id: status.id}, (err, res) => {
-          if (err) output({items: [{title: '饭否', subtitle: err.message}]})
-          else console.log('删除成功！')
+        ff.post('/statuses/destroy', {id: status.id}, err => {
+          if (err) {
+            output({items: [{title: '饭否', subtitle: err.message}]})
+          } else {
+            console.log('删除成功！')
+          }
         })
       }
     })
@@ -132,19 +153,4 @@ if (args[0] === 'config') {
     default:
       break
   }
-} else {
-  const text = argStr
-  const config = require(filePath)
-  const ff = new Fanfou({
-    consumerKey: config.consumer_key,
-    consumerSecret: config.consumer_secret,
-    oauthToken: config.oauth_token,
-    oauthTokenSecret: config.oauth_token_secret,
-    protocol: config.https ? 'https:' : 'http:',
-    fakeHttps: !!config.https
-  })
-  ff.post('/statuses/update', {status: text}, (err, res) => {
-    if (err) console.log(err.message)
-    else console.log(res.text)
-  })
 }

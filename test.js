@@ -15,7 +15,7 @@ process.env.NODE_ENV = 'test'
 const PULL_REQUEST_FROM_FORKED = !(CONSUMER_KEY && CONSUMER_SECRET && FANFOU_USERNAME && FANFOU_PASSWORD)
 
 const base64 = {
-  encode: (q) => {
+  encode: q => {
     return Buffer.from(q).toString('base64')
   }
 }
@@ -32,12 +32,20 @@ test('ff config', async t => {
 
 test('ff login', async t => {
   const {stdout} = await execa('./lib/fanfou.js', [base64.encode(loginQuery)])
-  PULL_REQUEST_FROM_FORKED ? t.is(stdout, 'Invalid consumer') : t.is(stdout, '登录成功！')
+  if (PULL_REQUEST_FROM_FORKED) {
+    t.is(stdout, 'Invalid consumer')
+  } else {
+    t.is(stdout, '登录成功！')
+  }
 })
 
 test('ff post', async t => {
   const {stdout} = await execa('./lib/fanfou.js', [base64.encode(postQuery)])
-  PULL_REQUEST_FROM_FORKED ? t.is(stdout, 'Invalid consumer') : t.is(stdout, postQuery)
+  if (PULL_REQUEST_FROM_FORKED) {
+    t.is(stdout, 'Invalid consumer')
+  } else {
+    t.is(stdout, postQuery)
+  }
 })
 
 test('ff me 1', async t => {

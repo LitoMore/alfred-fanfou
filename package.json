@@ -16,7 +16,7 @@
     "node": ">=6"
   },
   "scripts": {
-    "build": "standard && babel src -d lib",
+    "build": "xo && babel src -d lib",
     "test": "npm run build",
     "postinstall": "alfred-link"
   },
@@ -42,6 +42,13 @@
     "@babel/preset-env": "^7.0.0-beta.43",
     "ava": "^0.25.0",
     "execa": "^0.10.0",
-    "standard": "^11.0.0"
+    "xo": "^0.21.0"
+  },
+  "xo": {
+    "rules": {
+      "camelcase": 0
+    },
+    "semicolon": false,
+    "space": 2
   }
 }
