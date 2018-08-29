@@ -29,7 +29,7 @@
   "keywords": [],
   "dependencies": {
     "alfred-link": "^0.2.1",
-    "fanfou-sdk": "^2.7.2",
+    "fanfou-sdk": "^3.0.0",
     "homedir": "^0.6.0",
     "import-lazy": "^3.1.0",
     "pangu": "^3.3.0",
