@@ -46,7 +46,13 @@
   },
   "xo": {
     "rules": {
-      "camelcase": 0
+      "camelcase": 0,
+      "unicorn/catch-error-name": [
+        "error",
+        {
+          "name": "err"
+        }
+      ]
     },
     "semicolon": false,
     "space": 2
