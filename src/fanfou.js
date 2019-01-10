@@ -51,7 +51,9 @@ if (args[0] === 'config') {
     username,
     password,
     protocol: config.https ? 'https:' : 'http:',
-    fakeHttps: Boolean(config.https)
+    hooks: {
+      baseString: str => config.https ? str.replace('https', 'http') : str
+    }
   })
   ff.xauth()
     .then(async res => {
@@ -73,7 +75,9 @@ if (args[0] === 'config') {
     oauthToken: config.oauth_token,
     oauthTokenSecret: config.oauth_token_secret,
     protocol: config.https ? 'https:' : 'http:',
-    fakeHttps: Boolean(config.https)
+    hooks: {
+      baseString: str => config.https ? str.replace('https', 'http') : str
+    }
   })
   ff.post('/statuses/update', {status: text})
     .then(res => {
@@ -90,7 +94,9 @@ if (args[0] === 'config') {
     oauthToken: config.oauth_token,
     oauthTokenSecret: config.oauth_token_secret,
     protocol: config.https ? 'https:' : 'http:',
-    fakeHttps: Boolean(config.https)
+    hooks: {
+      baseString: str => config.https ? str.replace('https', 'http') : str
+    }
   })
   const count = args[1] || 10
   const getTimeline = async uri => {
