@@ -11,7 +11,7 @@ const Timeago = importLazy('timeago.js')
 
 const configPath = process.env.NODE_ENV === 'test' ? '/.alfred-fanfou-test/' : '/.alfred-fanfou/'
 const filePath = `${homedir()}${configPath}config.json`
-const [, , arg] = process.argv
+const arg = process.argv[2]
 
 const base64 = {
   decode: str => Buffer.from(str, 'base64').toString(),
@@ -40,6 +40,7 @@ if (args[0] === 'config') {
     })
     console.log('配置成功！')
   }
+
   cf()
 } else if (args[0] === 'login') {
   const [, username, password] = args
