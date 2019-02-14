@@ -32,7 +32,7 @@
     "fanfou-sdk": "^4.0.0",
     "homedir": "^0.6.0",
     "import-lazy": "^3.1.0",
-    "pangu": "^3.3.0",
+    "pangu": "^4.0.7",
     "timeago.js": "^3.0.2"
   },
   "devDependencies": {
