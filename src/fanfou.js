@@ -4,7 +4,6 @@
 const fs = require('fs')
 const importLazy = require('import-lazy')(require)
 
-const pangu = importLazy('pangu')
 const homedir = importLazy('homedir')
 const Fanfou = importLazy('fanfou-sdk')
 const Timeago = importLazy('timeago.js')
@@ -110,7 +109,7 @@ if (args[0] === 'config') {
           subtitle: item.text,
           mods: {
             cmd: {
-              subtitle: pangu.spacing(new Timeago().format(item.created_at, 'zh_CN')) + ' via ' + item.source_name
+              subtitle: (new Timeago().format(item.created_at, 'zh_CN') + ' via ' + item.source_name)
             }
           },
           quicklookur: 'https://fanfou.com'
