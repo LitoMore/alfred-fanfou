@@ -10,11 +10,17 @@ Alfred 3 workflow for Fanfou
 
 <div align="center"><img width="75%" height="75%" src="https://raw.githubusercontent.com/LitoMore/alfred-fanfou/master/screenshot.png" alt="alfred-fanfou" /></div>
 
-## Installation
+## Install
 
 ```bash
-$ npm install -g alfred-fanfou
+$ npm i -g alfred-fanfou
 ```
+
+---
+
+<a href="https://www.patreon.com/LitoMore">
+  <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
+</a>
 
 > Require [Node.js](https://nodejs.org/) >=6 and the Alfred [Powerpack](https://www.alfredapp.com/powerpack/).
 
