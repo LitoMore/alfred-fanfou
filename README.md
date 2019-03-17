@@ -49,7 +49,11 @@ ff p [count]      # show public-timeline
 ff undo           # delete last status
 ```
 
-In timeline mode, hold <kbd>Command</kbd> to display additional information.
+In timeline mode:
+
+- Hold <kbd>Command</kbd> to display additional information.
+- Press <kbd>Command</kbd> + <kbd>L</kbd> to preview full status.
+- Press <kbd>Command</kbd> + <kbd>C</kbd> to copy status ID to clipboard.
 
 ## Related
 

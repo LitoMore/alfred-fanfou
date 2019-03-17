@@ -112,6 +112,10 @@ if (args[0] === 'config') {
               subtitle: (new Timeago().format(item.created_at, 'zh_CN') + ' via ' + item.source_name)
             }
           },
+          text: {
+            copy: item.id,
+            largetype: item.plain_text
+          },
           quicklookur: 'https://fanfou.com'
         })
       })
