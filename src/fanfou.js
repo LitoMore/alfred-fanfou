@@ -2,14 +2,15 @@
 'use strict'
 
 const fs = require('fs')
+const os = require('os')
 const importLazy = require('import-lazy')(require)
 
-const homedir = importLazy('homedir')
 const Fanfou = importLazy('fanfou-sdk')
 const Timeago = importLazy('timeago.js')
 
+const homedir = os.homedir()
 const configPath = process.env.NODE_ENV === 'test' ? '/.alfred-fanfou-test/' : '/.alfred-fanfou/'
-const filePath = `${homedir()}${configPath}config.json`
+const filePath = `${homedir}${configPath}config.json`
 const arg = process.argv[2]
 
 const base64 = {
@@ -22,25 +23,19 @@ const argStr = base64.decode(arg)
 const args = argStr.split(' ')
 
 const createConfig = content => {
-  return new Promise(resolve => {
-    fs.mkdir(`${homedir()}${configPath}`, () => {
-      fs.writeFileSync(filePath, JSON.stringify(content, null, 2))
-      resolve(content)
-    })
-  })
+  try {
+    fs.mkdirSync(`${homedir}${configPath}`)
+    fs.writeFileSync(filePath, JSON.stringify(content, null, 2))
+  } catch (err) {}
 }
 
 if (args[0] === 'config') {
   const [, consumerKey, consumerSecret] = args
-  const cf = async () => {
-    await createConfig({
-      consumer_key: consumerKey,
-      consumer_secret: consumerSecret
-    })
-    console.log('配置成功！')
-  }
-
-  cf()
+  createConfig({
+    consumer_key: consumerKey,
+    consumer_secret: consumerSecret
+  })
+  console.log('配置成功！')
 } else if (args[0] === 'login') {
   const [, username, password] = args
   const config = require(filePath)
@@ -56,11 +51,11 @@ if (args[0] === 'config') {
     }
   })
   ff.xauth()
-    .then(async res => {
+    .then(res => {
       const {oauthToken, oauthTokenSecret} = res
       config.oauth_token = oauthToken
       config.oauth_token_secret = oauthTokenSecret
-      await createConfig(config)
+      createConfig(config)
       console.log('登录成功！')
     })
     .catch(err => {
@@ -104,9 +99,11 @@ if (args[0] === 'config') {
       const res = await ff.get(uri, {count})
       const timeline = []
       res.forEach(item => {
+        const photo = item.photo && item.photo.largeurl
+
         timeline.push({
           title: item.user.name,
-          subtitle: item.text,
+          subtitle: `${photo ? '[图] ' : ''}${item.text}`,
           mods: {
             cmd: {
               subtitle: (new Timeago().format(item.created_at, 'zh_CN') + ' via ' + item.source_name)
@@ -116,7 +113,7 @@ if (args[0] === 'config') {
             copy: item.id,
             largetype: item.plain_text
           },
-          quicklookur: 'https://fanfou.com'
+          quicklookurl: photo
         })
       })
       output({items: timeline})
