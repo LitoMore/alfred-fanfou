@@ -52,9 +52,9 @@ ff undo           # delete last status
 In timeline mode:
 
 - Hold <kbd>Command</kbd> to display additional information.
-- Press <kbd>Command</kbd> + <kbd>L</kbd> to preview full status.
-- Press <kbd>Command</kbd> + <kbd>C</kbd> to copy status ID to clipboard.
-- Press <kbd>Shift</kbd> or <kbd>Command</kbd> + <kbd>Y</kbd> to quick look a photo.
+- Press <kbd>Command + L</kbd> to preview full status.
+- Press <kbd>Command + C</kbd> to copy status ID to clipboard.
+- Press <kbd>Shift</kbd> or <kbd>Command + Y</kbd> to quick look a photo.
 
 ## Related
 
