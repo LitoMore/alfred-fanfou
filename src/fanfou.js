@@ -25,8 +25,9 @@ const args = argStr.split(' ')
 const createConfig = content => {
   try {
     fs.mkdirSync(`${homedir}${configPath}`)
-    fs.writeFileSync(filePath, JSON.stringify(content, null, 2))
   } catch (err) {}
+
+  fs.writeFileSync(filePath, JSON.stringify(content, null, 2))
 }
 
 if (args[0] === 'config') {
