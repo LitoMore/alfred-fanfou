@@ -50,18 +50,18 @@ if (args[0] === 'config') {
     hooks: {
       baseString: str => config.https ? str.replace('https', 'http') : str
     }
-  })
-  ff.xauth()
-    .then(res => {
-      const {oauthToken, oauthTokenSecret} = res
+  });
+  (async () => {
+    try {
+      const {oauthToken, oauthTokenSecret} = await ff.xauth()
       config.oauth_token = oauthToken
       config.oauth_token_secret = oauthTokenSecret
       createConfig(config)
       console.log('登录成功！')
-    })
-    .catch(err => {
+    } catch (err) {
       console.log(err.message)
-    })
+    }
+  })()
 } else if (['h', 'm', 'me', 'p', 'undo'].indexOf(args[0]) === -1) {
   const text = argStr
   const config = require(filePath)
@@ -74,14 +74,16 @@ if (args[0] === 'config') {
     hooks: {
       baseString: str => config.https ? str.replace('https', 'http') : str
     }
-  })
-  ff.post('/statuses/update', {status: text})
-    .then(res => {
-      console.log(res.text)
-    })
-    .catch(err => {
+  });
+
+  (async () => {
+    try {
+      const res = await ff.post('/statuses/update', {status: text})
+      console.log(res)
+    } catch (err) {
       console.log(err.message)
-    })
+    }
+  })()
 } else {
   const config = require(filePath)
   const ff = new Fanfou({
