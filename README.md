@@ -16,7 +16,7 @@ Alfred 3 workflow for Fanfou
 $ npm i -g alfred-fanfou
 ```
 
-> Require [Node.js](https://nodejs.org/) >=6 and the Alfred [Powerpack](https://www.alfredapp.com/powerpack/).
+> Require [Node.js](https://nodejs.org/) >=8 and the Alfred [Powerpack](https://www.alfredapp.com/powerpack/).
 
 ---
 
