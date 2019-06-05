@@ -12,13 +12,13 @@ Alfred 3 workflow for Fanfou
 
 ## Install
 
+> Require [Node.js](https://nodejs.org/) >=8 and the Alfred [Powerpack](https://www.alfredapp.com/powerpack/).
+
 ### Using npm
 
 ```bash
 $ npm i -g alfred-fanfou
 ```
-
-> Require [Node.js](https://nodejs.org/) >=8 and the Alfred [Powerpack](https://www.alfredapp.com/powerpack/).
 
 ### Manually
 
