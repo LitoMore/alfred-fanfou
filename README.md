@@ -20,15 +20,15 @@ $ npm i -g alfred-fanfou
 
 > Require [Node.js](https://nodejs.org/) >=8 and the Alfred [Powerpack](https://www.alfredapp.com/powerpack/).
 
+### Manually
+
+Download from [Packal](http://www.packal.org/workflow/alfred-fanfou), then drag this workflow file to your Alfred.
+
 ---
 
 <a href="https://www.patreon.com/LitoMore">
   <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
 </a>
-
-### Manually
-
-Download from [Packal](http://www.packal.org/workflow/alfred-fanfou), then drag this workflow file to your Alfred.
 
 ## Config & Login
 
