@@ -6,13 +6,13 @@
 [![](https://img.shields.io/npm/l/alfred-fanfou.svg)](https://github.com/LitoMore/alfred-fanfou/blob/master/LICENSE)
 [![](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo)
 
-Alfred 3 workflow for Fanfou
+Alfred workflow for Fanfou
 
 <div align="center"><img width="75%" height="75%" src="https://raw.githubusercontent.com/LitoMore/alfred-fanfou/master/screenshot.png" alt="alfred-fanfou" /></div>
 
 ## Install
 
-> Require [Node.js](https://nodejs.org/) >=8 and the Alfred [Powerpack](https://www.alfredapp.com/powerpack/).
+> Require [Node.js](https://nodejs.org/) >=8 and the Alfred 3 or Alfred 4 [Powerpack](https://www.alfredapp.com/powerpack/).
 
 ### Using npm
 
