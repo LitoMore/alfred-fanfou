@@ -25,7 +25,7 @@ const args = argStr.split(' ')
 const createConfig = content => {
   try {
     fs.mkdirSync(`${homedir}${configPath}`)
-  } catch (err) {}
+  } catch (_) {}
 
   fs.writeFileSync(filePath, JSON.stringify(content, null, 2))
 }
@@ -62,29 +62,7 @@ if (args[0] === 'config') {
       console.log(err.message)
     }
   })()
-} else if (['h', 'm', 'me', 'p', 'undo'].indexOf(args[0]) === -1) {
-  const text = argStr
-  const config = require(filePath)
-  const ff = new Fanfou({
-    consumerKey: config.consumer_key,
-    consumerSecret: config.consumer_secret,
-    oauthToken: config.oauth_token,
-    oauthTokenSecret: config.oauth_token_secret,
-    protocol: config.https ? 'https:' : 'http:',
-    hooks: {
-      baseString: str => config.https ? str.replace('https', 'http') : str
-    }
-  });
-
-  (async () => {
-    try {
-      const res = await ff.post('/statuses/update', {status: text})
-      console.log(res)
-    } catch (err) {
-      console.log(err.message)
-    }
-  })()
-} else {
+} else if (['h', 'm', 'me', 'p', 'undo'].includes(args[0])) {
   const config = require(filePath)
   const ff = new Fanfou({
     consumerKey: config.consumer_key,
@@ -155,4 +133,26 @@ if (args[0] === 'config') {
     default:
       break
   }
+} else {
+  const text = argStr
+  const config = require(filePath)
+  const ff = new Fanfou({
+    consumerKey: config.consumer_key,
+    consumerSecret: config.consumer_secret,
+    oauthToken: config.oauth_token,
+    oauthTokenSecret: config.oauth_token_secret,
+    protocol: config.https ? 'https:' : 'http:',
+    hooks: {
+      baseString: str => config.https ? str.replace('https', 'http') : str
+    }
+  });
+
+  (async () => {
+    try {
+      const res = await ff.post('/statuses/update', {status: text})
+      console.log(res)
+    } catch (err) {
+      console.log(err.message)
+    }
+  })()
 }
