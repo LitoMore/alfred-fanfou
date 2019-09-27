@@ -22,7 +22,7 @@ const base64 = {
 
 const configQuery = `config ${CONSUMER_KEY} ${CONSUMER_SECRET}`
 const loginQuery = `login ${FANFOU_USERNAME} ${FANFOU_PASSWORD}`
-const postQuery = `alfred test - ${Math.random().toString(36).substr(2, 5)}`
+const postQuery = `alfred test - ${Math.random().toString(36).slice(2, 5)}`
 const homeQuery = 'h 1'
 
 test('ff config', async t => {
