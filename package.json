@@ -13,7 +13,7 @@
     "run-node": "run-node.sh"
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
   },
   "scripts": {
     "test": "xo",
