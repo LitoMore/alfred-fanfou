@@ -13,7 +13,7 @@
     "run-node": "run-node.sh"
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
   },
   "scripts": {
     "test": "xo",
@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "ava": "^3.0.0",
-    "execa": "^3.0.0",
+    "execa": "^4.0.0",
     "xo": "^0.25.3"
   },
   "xo": {
