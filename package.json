@@ -34,9 +34,9 @@
     "timeago.js": "^3.0.2"
   },
   "devDependencies": {
-    "ava": "^3.0.0",
+    "ava": "^3.8.2",
     "execa": "^4.0.0",
-    "xo": "^0.26.0"
+    "xo": "^0.30.0"
   },
   "xo": {
     "rules": {

@@ -14,13 +14,13 @@ const filePath = `${homedir}${configPath}config.json`
 const arg = process.argv[2]
 
 const base64 = {
-  decode: str => Buffer.from(str, 'base64').toString(),
-  encode: str => Buffer.from(str).toString('base64')
+  decode: string => Buffer.from(string, 'base64').toString(),
+  encode: string => Buffer.from(string).toString('base64')
 }
 
 const output = item => console.log(JSON.stringify(item))
-const argStr = base64.decode(arg)
-const args = argStr.split(' ')
+const argString = base64.decode(arg)
+const args = argString.split(' ')
 
 const createConfig = content => {
   try {
@@ -48,7 +48,7 @@ if (args[0] === 'config') {
     password,
     protocol: config.https ? 'https:' : 'http:',
     hooks: {
-      baseString: str => config.https ? str.replace('https', 'http') : str
+      baseString: string => config.https ? string.replace('https', 'http') : string
     }
   });
   (async () => {
@@ -71,15 +71,15 @@ if (args[0] === 'config') {
     oauthTokenSecret: config.oauth_token_secret,
     protocol: config.https ? 'https:' : 'http:',
     hooks: {
-      baseString: str => config.https ? str.replace('https', 'http') : str
+      baseString: string => config.https ? string.replace('https', 'http') : string
     }
   })
   const count = args[1] || 10
   const getTimeline = async uri => {
     try {
-      const res = await ff.get(uri, {count})
+      const result = await ff.get(uri, {count})
       const timeline = []
-      res.forEach(item => {
+      result.forEach(item => {
         const photo = item.photo && item.photo.largeurl
 
         timeline.push({
@@ -134,7 +134,7 @@ if (args[0] === 'config') {
       break
   }
 } else {
-  const text = argStr
+  const text = argString
   const config = require(filePath)
   const ff = new Fanfou({
     consumerKey: config.consumer_key,
@@ -143,14 +143,14 @@ if (args[0] === 'config') {
     oauthTokenSecret: config.oauth_token_secret,
     protocol: config.https ? 'https:' : 'http:',
     hooks: {
-      baseString: str => config.https ? str.replace('https', 'http') : str
+      baseString: string => config.https ? string.replace('https', 'http') : string
     }
   });
 
   (async () => {
     try {
-      const res = await ff.post('/statuses/update', {status: text})
-      console.log(res)
+      const result = await ff.post('/statuses/update', {status: text})
+      console.log(result)
     } catch (err) {
       console.log(err.message)
     }
