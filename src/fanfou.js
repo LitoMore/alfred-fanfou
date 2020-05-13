@@ -80,7 +80,7 @@ if (args[0] === 'config') {
       const result = await ff.get(uri, {count})
       const timeline = []
       result.forEach(item => {
-        const photo = item.photo && item.photo.largeurl
+        const photo = item.photo && item.photo.originurl
 
         timeline.push({
           title: item.user.name,
