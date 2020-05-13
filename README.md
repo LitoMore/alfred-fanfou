@@ -1,6 +1,5 @@
 # alfred-fanfou
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/LitoMore/alfred-fanfou.svg)](https://greenkeeper.io/)
 [![](https://img.shields.io/travis/LitoMore/alfred-fanfou/master.svg)](https://travis-ci.org/LitoMore/alfred-fanfou)
 [![](https://img.shields.io/npm/v/alfred-fanfou.svg)](https://www.npmjs.com/package/alfred-fanfou)
 [![](https://img.shields.io/npm/l/alfred-fanfou.svg)](https://github.com/LitoMore/alfred-fanfou/blob/master/LICENSE)
