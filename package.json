@@ -9,11 +9,9 @@
     "email": "litomore@gmail.com",
     "url": "https://litomore.me"
   },
-  "bin": {
-    "run-node": "run-node.sh"
-  },
+  "type": "module",
   "engines": {
-    "node": ">=10"
+    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
   },
   "scripts": {
     "test": "xo",
@@ -29,26 +27,12 @@
   "keywords": [],
   "dependencies": {
     "alfred-link": "^0.3.1",
-    "fanfou-sdk": "^4.0.4",
-    "import-lazy": "^4.0.0",
+    "fanfou-sdk": "^5.0.0-beta.7",
     "timeago.js": "^3.0.2"
   },
   "devDependencies": {
-    "ava": "^3.8.2",
-    "execa": "^4.0.0",
-    "xo": "^0.30.0"
-  },
-  "xo": {
-    "rules": {
-      "camelcase": 0,
-      "unicorn/catch-error-name": [
-        "error",
-        {
-          "name": "err"
-        }
-      ]
-    },
-    "semicolon": false,
-    "space": 2
+    "ava": "^3.15.0",
+    "execa": "^5.1.1",
+    "xo": "^0.45.0"
   }
 }

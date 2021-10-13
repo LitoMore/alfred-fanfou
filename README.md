@@ -1,6 +1,5 @@
 # alfred-fanfou
 
-[![](https://img.shields.io/travis/LitoMore/alfred-fanfou/master.svg)](https://travis-ci.org/LitoMore/alfred-fanfou)
 [![](https://img.shields.io/npm/v/alfred-fanfou.svg)](https://www.npmjs.com/package/alfred-fanfou)
 [![](https://img.shields.io/npm/l/alfred-fanfou.svg)](https://github.com/LitoMore/alfred-fanfou/blob/master/LICENSE)
 [![](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo)
@@ -22,12 +21,6 @@ $ npm i -g alfred-fanfou
 ### Manually
 
 Download from [Packal](http://www.packal.org/workflow/alfred-fanfou), then drag this workflow file to your Alfred.
-
----
-
-<a href="https://www.patreon.com/LitoMore">
-  <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
-</a>
 
 ## Config & Login
 
